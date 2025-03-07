@@ -27,6 +27,9 @@ export default defineConfig({
     }),
   ],
   base: "/exchange/",
+  build: {
+    outDir: "dist",
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
