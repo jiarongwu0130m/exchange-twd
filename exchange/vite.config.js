@@ -26,7 +26,7 @@ export default defineConfig({
       dirs: ["src/pages"],
     }),
   ],
-  base: "/exchange-twd/",
+  // base: "/exchange-twd/",
   build: {
     outDir: "dist",
   },
