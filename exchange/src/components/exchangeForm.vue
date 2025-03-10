@@ -16,6 +16,15 @@ const {
   resultDialog,
 } = useExchangeApi();
 
+// 為每個輸入框創建 ref
+const inputAmountUsd = ref(null);
+const inputRateTwd = ref(null);
+const inputAirportTwd = ref(null);
+const inputAirportUsd = ref(null);
+const inputRateUsd = ref(null);
+const inputBankKrw = ref(null);
+const inputBankUsd = ref(null);
+
 // 將焦點移動到下一個輸入框
 const moveFocus = (event, nextInput) => {
   event.preventDefault(); // 防止換行造成不必要的頁面滾動
@@ -34,7 +43,7 @@ const moveFocus = (event, nextInput) => {
           type="number"
           style="width: 10rem"
           placeholder="必填"
-          @keydown.enter="moveFocus($event, amountUsd)"
+          @keydown.enter="moveFocus($event, inputAmountUsd)"
         />
       </div>
     </div>
@@ -42,10 +51,11 @@ const moveFocus = (event, nextInput) => {
       <div>美金：</div>
       <div>
         <el-input
+          ref="inputAmountUsd"
           v-model="amountUsd"
           type="number"
           style="width: 10rem"
-          @keydown.enter="moveFocus($event, rateTWD)"
+          @keydown.enter="moveFocus($event, inputRateTwd)"
         />
       </div>
     </div>
@@ -57,10 +67,11 @@ const moveFocus = (event, nextInput) => {
       <div>台幣(換錢所)：</div>
       <div>
         <el-input
+          ref="inputRateTwd"
           v-model="rateTWD"
           type="number"
           style="width: 10rem"
-          @keydown.enter="moveFocus($event, airportTWD)"
+          @keydown.enter="moveFocus($event, inputAirportTwd)"
         />
       </div>
     </div>
@@ -68,10 +79,11 @@ const moveFocus = (event, nextInput) => {
       <div>台幣(機場)：</div>
       <div>
         <el-input
+          ref="inputAirportTwd"
           v-model="airportTWD"
           type="number"
           style="width: 10rem"
-          @keydown.enter="moveFocus($event, airportUSD)"
+          @keydown.enter="moveFocus($event, inputAirportUsd)"
         />
       </div>
     </div>
@@ -79,10 +91,11 @@ const moveFocus = (event, nextInput) => {
       <div>美金(機場)：</div>
       <div>
         <el-input
+          ref="inputAirportUsd"
           v-model="airportUSD"
           type="number"
           style="width: 10rem"
-          @keydown.enter="moveFocus($event, rateUSD)"
+          @keydown.enter="moveFocus($event, inputRateUsd)"
         />
       </div>
     </div>
@@ -90,10 +103,11 @@ const moveFocus = (event, nextInput) => {
       <div>美金(換錢所)：</div>
       <div>
         <el-input
+          ref="inputRateUsd"
           v-model="rateUSD"
           type="number"
           style="width: 10rem"
-          @keydown.enter="moveFocus($event, bankKRW)"
+          @keydown.enter="moveFocus($event, inputBankKrw)"
         />
       </div>
     </div>
@@ -105,18 +119,24 @@ const moveFocus = (event, nextInput) => {
       <div>韓幣：</div>
       <div>
         <el-input
+          ref="inputBankKrw"
           v-model="bankKRW"
           type="number"
           style="width: 10rem"
           placeholder="必填"
-          @keydown.enter="moveFocus($event, bankUSD)"
+          @keydown.enter="moveFocus($event, inputBankUsd)"
         />
       </div>
     </div>
     <div class="flex gap-2 ml-4">
       <div>美金：</div>
       <div>
-        <el-input v-model="bankUSD" type="number" style="width: 10rem" />
+        <el-input
+          ref="inputBankUsd"
+          v-model="bankUSD"
+          type="number"
+          style="width: 10rem"
+        />
       </div>
     </div>
   </div>
