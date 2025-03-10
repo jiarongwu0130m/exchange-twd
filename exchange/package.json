@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "cssWatch": "tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch"
   },
   "dependencies": {
     "element-plus": "^2.9.5",

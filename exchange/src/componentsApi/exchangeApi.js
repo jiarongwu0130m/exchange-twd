@@ -4,30 +4,34 @@ import { storeToRefs } from "pinia";
 export const useExchangeApi = () => {
   const store = useExchangeStore();
   const {
-    amount,
-    rateToKRW,
-    rateToUSD,
-    rateUSDToKRW,
-    rateAirport,
+    amountTwd,
+    amountUsd,
+
+    airportTWD,
+    airportUSD,
+
+    rateTWD,
+    rateUSD,
+
+    bankKRW,
+    bankUSD,
+
     resultDialog,
   } = storeToRefs(store);
-  const {
-    exchangeInKorea,
-    exchangeViaUSD,
-    exchangeAtAirport,
-    bestExchangeMethod,
-  } = store;
 
   return {
-    amount,
-    rateToKRW,
-    rateToUSD,
-    rateUSDToKRW,
-    rateAirport,
+    amountTwd,
+    amountUsd,
+
+    airportTWD,
+    airportUSD,
+
+    rateTWD,
+    rateUSD,
+
+    bankKRW,
+    bankUSD,
+
     resultDialog,
-    exchangeInKorea,
-    exchangeViaUSD,
-    exchangeAtAirport,
-    bestExchangeMethod,
   };
 };

@@ -3,3 +3,24 @@
 a {
   text-decoration: none;
 }
+
+#app {
+  display: block !important;
+}
+
+.title-class {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2a9d8f;
+}
+
+.result-dialog {
+  border: 1px dashed #1a759f;
+  padding: 0 2rem;
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a759f;
+}
