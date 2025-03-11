@@ -12,8 +12,6 @@ const {
 
   bankKRW,
   bankUSD,
-
-  resultDialog,
 } = useExchangeApi();
 
 // 為每個輸入框創建 ref
@@ -54,6 +52,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputAmountUsd"
           v-model="amountUsd"
+          inputmode="numeric"
           type="number"
           style="width: 10rem"
           @keydown.enter="moveFocus($event, inputRateTwd)"
@@ -70,6 +69,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputRateTwd"
           v-model="rateTWD"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
           @keydown.enter="moveFocus($event, inputAirportTwd)"
@@ -82,6 +82,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputAirportTwd"
           v-model="airportTWD"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
           @keydown.enter="moveFocus($event, inputAirportUsd)"
@@ -94,6 +95,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputAirportUsd"
           v-model="airportUSD"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
           @keydown.enter="moveFocus($event, inputRateUsd)"
@@ -106,6 +108,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputRateUsd"
           v-model="rateUSD"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
           @keydown.enter="moveFocus($event, inputBankKrw)"
@@ -122,6 +125,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputBankKrw"
           v-model="bankKRW"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
           placeholder="必填"
@@ -135,6 +139,7 @@ const moveFocus = (event, nextInput) => {
         <el-input
           ref="inputBankUsd"
           v-model="bankUSD"
+          inputmode="decimal"
           type="number"
           style="width: 10rem"
         />
