@@ -16,6 +16,7 @@ const {
   resultDialog,
 } = useExchangeApi();
 
+// 格式化數字
 const formatNumber = (num) => {
   if (isNaN(num)) return "0";
   return num.toLocaleString("en-US", {
@@ -24,32 +25,46 @@ const formatNumber = (num) => {
   });
 };
 
+//#region 台幣 -> 韓幣
+// 1. 台灣當地銀行
 const twdToKrwInBank = computed(() =>
   formatNumber(amountTwd.value / bankKRW.value)
 );
+// 2. 韓國機場
 const twdToKrwInAirport = computed(() =>
   formatNumber(amountTwd.value * airportTWD.value)
 );
+// 3. 韓國換錢所
 const twdToKrwInRate = computed(() =>
   formatNumber(amountTwd.value * rateTWD.value)
 );
+//#endregion
 
+//#region 美金 -> 韓幣
+// 1. 韓國機場
 const usdToKrwInAirport = computed(() =>
   formatNumber(amountUsd.value * airportUSD.value)
 );
+// 2. 韓國換錢所
 const usdToKrwInRate = computed(() =>
   formatNumber(amountUsd.value * rateUSD.value)
 );
+//#endregion
 
+//#region 台幣 -> 美金 -> 韓幣
+// 台灣當地銀行換美金
 const twdToUsdInBank = computed(() =>
   formatNumber(amountTwd.value / bankUSD.value)
 );
+// 1. 韓國機場
 const twdToUsdToKrwInAirport = computed(() =>
   formatNumber(twdToUsdInBank.value * airportUSD.value)
 );
+// 2. 韓國換錢所
 const twdToUsdToKrwInRate = computed(() =>
   formatNumber(twdToUsdInBank.value * rateUSD.value)
 );
+//#endregion
 
 const handleClose = () => {
   resultDialog.value = false;

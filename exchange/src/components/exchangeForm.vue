@@ -40,6 +40,7 @@ const moveFocus = (event, nextInput) => {
       <div>
         <el-input
           v-model="amountTwd"
+          inputmode="numeric"
           type="number"
           style="width: 10rem"
           placeholder="必填"
