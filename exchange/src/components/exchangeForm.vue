@@ -156,6 +156,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 input[type="number"] {
+  appearance: textfield; /* Standard */
   -moz-appearance: textfield; /* Firefox */
 }
 </style>
